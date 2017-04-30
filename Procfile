@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:5001 run:app
+web: gunicorn --bind 0.0.0.0:80 run:app
