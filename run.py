@@ -1,5 +1,6 @@
 from flask import Flask, request, session
 from twilio import twiml
+import os
 import petfinder
 
 # The session object makes use of a secret key.
@@ -8,8 +9,10 @@ SECRET_KEY = 'a_secret_key'
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-api = petfinder.PetFinderClient(api_key='db8591f427cfe4ebf3051cb47a8db877',
-                               api_secret='dbd3b0ff178d2408bb1978ce4519282c'
+
+
+api = petfinder.PetFinderClient(api_key=os.environ['api_key'],
+                               api_secret=os.environ['api_secret']
                                )
 
 
